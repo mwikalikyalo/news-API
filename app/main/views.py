@@ -15,8 +15,8 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/')
-def index():
+@app.route('/news')
+def news():
   '''View root page function that returns the home page and its data'''
   return render_template('index.html')
 
@@ -39,4 +39,3 @@ app.config.from_object(DevConfig)
 if __name__ == '__main__':
   app.run(debug=True)
 
-from app.main import views
