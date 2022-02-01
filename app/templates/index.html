@@ -1,2 +1,21 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
+{% block content %}
+<div class="container-fluid">
+    <h2 class="text-center mt-50 p-20">CNN</h2>
+    <div class="row">
+        {% for source in source %}
+            <div class="col-md-3 d-flex justify-content-center source-body">
+                <div class="card bg-dark">
+                    <div class="card-body">
+                                <a href="/news/{{ news.id }}" target="_blank">
+                                    <h4 class="card-title">{{ news.name }}</h4>
+                                </a> 
+                                <p class="card-text">{{news.about | truncate(100)}}</p>                      
+                    </div>
+                  </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
