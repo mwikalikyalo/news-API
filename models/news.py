@@ -3,12 +3,13 @@ class News:
     Movie class to define Movie Objects
     '''
 
-    def __init__(self,id,name,tagline,about,link,languages):
-        self.id=id
-        self.name =name
-        self.tagline = tagline
-        self.about= about
-        self.link= link
-        self.languages = languages
+    def __init__(self,id,name,description,url,category,language,country):
+        id:id 
+        name: name 
+        description: description
+        url:url 
+        category: category 
+        language: language
+        country: country
         
         
