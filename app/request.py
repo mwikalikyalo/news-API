@@ -1,6 +1,6 @@
 from concurrent.futures import process
 from unicodedata import category
-from app import app
+from app.main import app
 import urllib.request,json
 from models import news
 from models.news_test import News
