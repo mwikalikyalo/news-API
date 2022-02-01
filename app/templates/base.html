@@ -1,13 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CNN</title>
+    <meta charset="utf-8"> 
+///
+    {% extends 'bootstrap/base.html'%}
+
+    <!-- Navbar block  -->
+    {% block navbar %} 
+    {% include 'navbar.html' %} 
+    {% endblock %}
+
+///
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to CNN where we give you<br> breaking news from all over the world.</title>
+    {% endif %}
 </head>
+
 <body>
-  {% block content %}
-  {% endblock %}
+    <!-- Content block -->
+
+    {% block content %} {% endblock%}
 </body>
+
 </html>
