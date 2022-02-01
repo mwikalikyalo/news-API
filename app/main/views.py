@@ -15,12 +15,6 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/news')
-def news():
-  '''View root page function that returns the home page and its data'''
-  return render_template('index.html')
-
-
 @app.route('/news/<int:id>')
 def news(id,name):
 
