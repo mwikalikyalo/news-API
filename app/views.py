@@ -11,6 +11,11 @@ def index():
     '''View root page function that returns the index page and its data'''
     return render_template('index.html')
 
+@app.route('/home')
+def index():
+  '''View root page function that returns the home page and its data'''
+  return render_template('home.html')
+
 # Setting up configuration
 app.config.from_object(DevConfig)
 
