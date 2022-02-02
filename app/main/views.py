@@ -3,7 +3,7 @@ from main import app
 from app.main import app
 from app.request import get_news
 from main.config import DevConfig
-from models.news import News
+from news import News
 
 app= Flask(__name__)
 

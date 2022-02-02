@@ -2,8 +2,8 @@ from concurrent.futures import process
 from unicodedata import category
 from app.main import app
 import urllib.request,json
-from models import news
-from models.news_test import News
+import news
+from news import News,Article
 
 News = news.News
 
@@ -55,3 +55,38 @@ def process_results(news_list):
 
     return news_results
 
+
+def get_articles(id):
+    get_article_details_url = base_url.format(id,api_key)
+    print(get_article_details_url)
+    with urllib.request.urlopen(get_article_details_url) as url:
+        get_articles_data = url.read()
+        get_articles_response = json.loads(get_articles_data)
+        source_articles = get_articles_response
+
+        if get_articles_response['articles']:
+            source_articles_list = get_articles_response['articles']
+            source_articles = process_articles(source_articles_list)
+    return source_articles
+
+def process_articles(articles):
+    '''
+    Function that processes the json results and returns a list of objects for the articles
+    '''
+    source_articles = []
+    for article in articles:
+        id = article.get('id')
+        name = article.get('name')
+        author = article.get('author')
+        title = article.get('title')
+        description = article.get('description')
+        url = article.get('url')
+        urlToImage = article.get('urlToImage')
+        publishedAt = article.get('publishedAt')
+        content = article.get('content')
+
+        if url:
+            article_object = Article(id, name, author, title,description, url, urlToImage, publishedAt, content)
+            source_articles.append(article_object)
+
+    return source_articles
