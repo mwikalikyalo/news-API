@@ -1,8 +1,7 @@
 class News:
     '''
-    Movie class to define Movie Objects
+    News class to define news objects
     '''
-
     def __init__(self,id,name,description,url,category,language,country):
         id:id 
         name: name 

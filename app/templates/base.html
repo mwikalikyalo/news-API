@@ -1,29 +1,16 @@
-<!DOCTYPE html>
-<html>
 
-<head>
-    <meta charset="utf-8"> 
-///
-    {% extends 'bootstrap/base.html'%}
-
+{% extends 'bootstrap/base.html'%}
     <!-- Navbar block  -->
     {% block navbar %} 
     {% include 'navbar.html' %} 
     {% endblock %}
 
-///
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
     <title> Welcome to CNN where we give you<br> breaking news from all over the world.</title>
     {% endif %}
 </head>
-
-<body>
-    <!-- Content block -->
-    {% block content %} 
-    
-    {% endblock%}
-</body>
-
+    <body>
+    </body>
 </html>

@@ -1,26 +1,31 @@
-{% extends 'base.html'%}
-{% block content %}
+{% extends 'base.html' %}
+
 {% block styles%}
     {{ super() }}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
 {% endblock %}
 
-<div class="container-fluid">
-    <h2 class="text-center mt-50 p-20">CNN</h2>
+{% block content %}
+<div class="container-fluid mb-20">
+    <h2 class="text-center mt-50 p-20"><span>CNN</span></h2>
     <div class="row">
         {% for news in news %}
-            <div class="col-md-3 d-flex justify-content-center source-body">
-                <div class="card bg-light">
+            <div class="col-md-3 d-flex justify-content-center">
+                <div class="card">
                     <div class="card-body">
-                                <a href="/news/{{ news.id }}" target="_blank">
-                                    <h4 class="card-title">{{ news.name }}</h4>
-                                </a> 
-                                <p class="card-text">{{news.description | truncate(150)}}</p>                      
+                        <a href="/source/{{ news.id }}" target="_blank">
+                            <h4 class="card-title">{{ news.name }}</h4>
+                        </a> 
+                        <p class="card-text">{{news.description | truncate(150)}}</p>                      
                     </div>
                   </div>
             </div>
         {% endfor %}
     </div>
+    <!-- <div class="container-fluid"> -->
+        <div class="footer bg-dark justify-content-center center">
+            <p class="copyright">copyright &copy; 2022 Winifred Mwikali Kyalo</p>
+        </div>
 </div>
 {% endblock %}
