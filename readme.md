@@ -42,6 +42,7 @@ No known bugs. Pull requests encouraged to improve the app.
 * Python3.8
 * Flask 2.0.2
 * Bootstrap v5
+* gunicorn
 
 ### Contacts
 You can reach me through:

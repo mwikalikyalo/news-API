@@ -1,20 +1,19 @@
 from flask import render_template, Flask
-from main import app
-from app.request import get_news
-from main.config import DevConfig
-from news import News
+from . import main
+from ..request import get_news
+
 
 app= Flask(__name__)
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''View root page function that returns the index page and its data'''
     return render_template('index.html')
 
 
-@app.route('/news/<int:id>')
+@main.route('/news/<int:id>')
 def news(id,name):
 
     '''
@@ -26,9 +25,5 @@ def news(id,name):
     return render_template('news.html',name= name,news = news)
 
 
-# Setting up configuration
-app.config.from_object(DevConfig)
 
-if __name__ == '__main__':
-  app.run(debug=True)
 
