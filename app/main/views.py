@@ -1,6 +1,5 @@
 from flask import render_template, Flask
 from main import app
-from app.main import app
 from app.request import get_news
 from main.config import DevConfig
 from news import News

@@ -1,5 +1,4 @@
-from app.main import app
-from app.main import create_app
+from main import create_app
 
 # Creating app instance
 app = create_app('development')
