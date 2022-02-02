@@ -6,6 +6,9 @@ from config import config_options
 
 bootstrap = Bootstrap()
 
+# Initializing application
+app = Flask(__name__, instance_relative_config = True)
+
 def create_app(config_name):
 
     app = Flask(__name__)
@@ -19,9 +22,6 @@ def create_app(config_name):
     # Will add the views and forms
 
     return app
-
-# Initializing application
-app = Flask(__name__, instance_relative_config = True)
 
 # Setting up configuration
 app.config.from_object(DevConfig)
