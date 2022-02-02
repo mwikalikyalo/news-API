@@ -14,8 +14,7 @@ def index():
 
 
 @main.route('/news/<int:id>')
-def news(id,name):
-
+def news(id):
     '''
     View news page function that returns the news details page and its data
     '''
@@ -23,6 +22,8 @@ def news(id,name):
     name = f'{news.name}'
 
     return render_template('news.html',name= name,news = news)
+   
+   
 
 
 

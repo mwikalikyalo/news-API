@@ -1,31 +1,64 @@
 {% extends 'base.html' %}
+{% import 'macro.html' as macro %}
 
-{% block styles%}
+{% block styles %}
     {{ super() }}
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{url_for('static',filename='index.css')}}">
 {% endblock %}
 
 {% block content %}
-<div class="container-fluid mb-20">
-    <h2 class="text-center mt-50 p-20" style="font-weight: bold; color: #1e6091; font-size: 5em;"><span>CNN</span></h2>
-    <div class="row">
-        {% for news in news_list %}
-            <div class="col-md-3 d-flex justify-content-center">
-                <div class="card">
-                    <div class="card-body">
-                        <a href="/source/{{ news.id }}" target="_blank">
-                            <h4 class="card-title">{{ news.name }}</h4>
-                        </a> 
-                        <p class="card-text">{{news.description | truncate(150)}}</p>                      
-                    </div>
-                  </div>
-            </div>
-        {% endfor %}
+<div class="container">
+  <div>
+    <h2 style="color: #9d0208; text-align: center; font-size: 7em; font-weight: 800;">CNN</h2>
+  </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px" id="now">
+        <!-- General News -->
+        <h3 style="color: #005f73;" id="try">General News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(general)}}</div>
     </div>
-    <!-- <div class="container-fluid"> -->
-        <div class="footer bg-dark justify-content-center center">
-            <p class="copyright">copyright &copy; 2022 Winifred Mwikali Kyalo</p>
-        </div>
-</div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style=" padding-bottom: 50px">
+        <!-- Business News -->
+        <h3 style="color: #005f73;">Business News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(business)}}</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px">
+        <!-- Technology News -->
+        <h3 style="color: #005f73;"> Technology News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(technology)}}</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background: #fbfcfc; padding-bottom: 50px">
+        <!-- Sports News -->
+        <h3 style="color: #005f73;">Sports News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(sports)}}</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px">
+        <!-- Entertainment News -->
+        <h3 style="color: #005f73;">Entertainment News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(entertainment)}}</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="background: #fbfcfc; padding-bottom: 50px">
+        <!-- Health News -->
+        <h3 style="color: #005f73;">Health News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(health)}}</div>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-bottom: 50px">
+        <!-- Science News -->
+        <h3 style="color: #005f73;">Science News</h3>
+        <hr />
+        <div class="is-flex" style="display: flex; flex-wrap: wrap">{{macro.displayNewsList(science)}}</div>
+    </div>
+    </div>
+
 {% endblock %}
