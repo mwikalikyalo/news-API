@@ -1,6 +1,5 @@
 import urllib.request,json
 import requests
-from instance.config import NEWS_API_KEY
 from .news import News,Article
 
 api_key= None
