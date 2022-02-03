@@ -1,4 +1,6 @@
 import urllib.request,json
+import requests
+from instance.config import NEWS_API_KEY
 from .news import News,Article
 
 api_key= None
@@ -26,6 +28,17 @@ def get_news(category):
             news_results = process_results(news_results_list)
 
     return news_results
+
+def get_article():
+    request = requests.get('https://newsapi.org/v2/everything?q=all&apiKey={}'
+                           .format(NEWS_API_KEY))
+    response = json.loads(request.content)
+    news = []
+    for new in response['articles']:
+        new = Article(new['author'], new['title'], new['description'],new['url'], 
+         new['urlToImage'], new['publishedAt'], new['content'])
+        news.append(new)
+    return news
 
 def process_results(news_list):
     '''
