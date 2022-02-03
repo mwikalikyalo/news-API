@@ -14,8 +14,7 @@ def create_app(config_name):
     # register blueprint
     app.register_blueprint(main_blueprint)
 
-    # setting config
-    
+    # setting config  
     configure_request(app)
     
     return app
