@@ -1,32 +1,31 @@
-{% extends 'index.html' %}
+{% extends 'base.html' %}
+
 <!-- Content block -->
 {% block content %}
-
-<div class="container">
-  {% for article in article %}
-
-        <div class="row" style="background-color: #f5f5f5">
-            <div class="col-sm-4">
-            <div class="card" style="padding: 20px">
-                <div class="card-body">
-                <img src="{{article.Image}}" alt="img" width="400px" />
-                </div>
-            </div>
-            </div>
-            <div class="col-sm-6 g-5">
-            <div class="card">
-                <div class="card-body" style="padding-left: 90px">
-                <h3>{{ article.title }}</h3>
-
-                <p class="name">{{ article.name }}</p>
-                <p class="title">{{ article.description }}</p>
-                <p>{{article.publishedAt}}</p>
-                <a href="{{article.url}}" class="btn btn-success">Whole story</a>
-                </div>
-            </div>
-            </div>
+<div class="container-fluid">
+    <h3 class="text-center m-30 p-20"><span>SOURCE: {{id|upper()}}</span></h3>
+    <div class="row">
+    {% for article in articles %}
+        <div class="col-lg-3 col-md-4 col-sm-4 d-flex justify-content-center">
+            <div class="card text-center">
+                <!-- <div class="card-body"> -->
+                    <img class="card-img-top mb-3"src="{{article.urlToImage}}" width= "100%" alt="">
+                    <h5 class="card-title">Author(s): {{ article.author }}</h5>
+                    <div class="card-text mb-3">
+                        <p>{{article.description}}</p> 
+                        <a href="{{ article.url }}" target="_blank">
+                            <h6>Read More...</h6>
+                        </a>
+                    </div>
+                    <div class="card-footer">
+                        <p><span>Date published:</span> {{article.publishedAt}}</p> 
+                        <h6>Source: {{id|title()}}</h6>
+                    </div>
+                <!-- </div> -->
+            </div>          
         </div>
-    {% endfor%}
-  {% endblock %}
-</div>
+    {% endfor %}
+    </div>
+</div>    
+{% endblock %}
 
