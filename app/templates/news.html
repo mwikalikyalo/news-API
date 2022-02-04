@@ -1,23 +1,32 @@
-{% extends 'index.html' %}
-{% block navbar %} 
-{% include 'navbar.html' %} 
+{% extends 'base.html' %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.css')}}">
 {% endblock %}
 
-<!-- Content block -->
 {% block content %}
 <div class="container-fluid">
-    <h3 class="text-center m-30 p-20"><span>SOURCE: {{id|upper()}}</span></h3>
+    <h3 class="text-center m-30 p-20" style="color: #9d0208; font-size: 5em;"><span>WORLD WIDE NEWS.</span></h3>
+    <hr>
+    <br>
     <div class="row">
-        {% for new in news %}
-            <img src={{new.urlToImage}} class="card-img-top" alt="...">
-            <div class="card-body" >
-                <h5 class="card-title">{{new.title}}</h5>
-                <p class="card-text">{{new.description}}</p>
-                <a href={{new.url}} target="_blank" class="btn btn-primary">Read More</a>
-                <p id="published">Published-At: {{new.publishedAt}}</p>
-            </div>
-        {% endfor %}
+    {% for article in article %}
+        <div class="col-lg-3 col-md-4 col-sm-4 d-flex justify-content-center">
+            <div class="card text-center">
+                <!-- <div class="card-body"> -->
+                    <h5 class="card-title">Source: {{ article.id }}</h5>
+                    <div class="card-text mb-3">
+                        <p style="color: #001219;">{{article.description}}</p> 
+                        <button type="button" class="btn btn-info"> 
+                            <a href="{{ article.url }}" target="_blank" style="text-decoration: none; color: aliceblue;">Read Articles</a></button>      
+                    </div>
+                <!-- </div> -->
+            </div>          
+        </div>
+    {% endfor %}
+    </div>
+    <div class="footer bg-dark justify-content-center center">
+        <p class="copyright" style="color: #14213d;">COPYRIGHT. &copy; 2022. MWIKALI KYALO.</p>
     </div>
 </div>    
 {% endblock %}
-

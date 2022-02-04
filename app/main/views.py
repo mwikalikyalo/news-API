@@ -1,27 +1,27 @@
+from unicodedata import category
 from flask import render_template, Flask
 from . import main
-from ..request import get_news
-
+from ..request import get_articles
 
 app= Flask(__name__)
 
-# Views
 @main.route('/')
-def index():
-
-    '''View root page function that returns the index page and its data'''
-
-    return render_template('index.html')
-
-@main.route('/news/<int:id>')
-def news(id):
+def news():
     '''
-    View news page function that returns the news details page and its data
+    View sources page function that returns the articles from the source data
     '''
-    news= get_news(id)
+    article = get_articles()
+    title = 'In the Headlines'
+    return render_template('news.html', title = title, article = article)
 
-    return render_template('news.html',name= name,news = news)
-
+# @main.route('/')
+# def index():
+#     '''
+#     View root page function that returns the index page and its data
+#     '''
+#     news = get_news(category)
+#     title = 'CNN'
+#     return render_template('index.html', title = title, news = news)
    
 
 
